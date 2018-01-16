@@ -48,6 +48,7 @@
     [self ryj_insertSections:sections];
     [self getDataAndSet];
 }
+
 - (void)ryj_deleteSections:(NSIndexSet *)sections {
     [self ryj_deleteSections:sections];
     [self getDataAndSet];
@@ -58,6 +59,7 @@
     [self ryj_insertItemsAtIndexPaths:indexPaths];
     [self getDataAndSet];
 }
+
 - (void)ryj_deleteItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths {
     [self ryj_deleteItemsAtIndexPaths:indexPaths];
     [self getDataAndSet];
@@ -76,11 +78,11 @@
 }
 
 - (void)getDataAndSet{
-    
-    if ([self totalDataCount] == 0) {
-        [self ryj_showBlankView];
-    }else{
-        [self ryj_hideBlankView];
-    }
+//    if ([self totalDataCount] == 0) {
+//        [self ryj_autoShow];
+//    }else{
+//        [self ryj_autoHide];
+//    }
 }
+
 @end

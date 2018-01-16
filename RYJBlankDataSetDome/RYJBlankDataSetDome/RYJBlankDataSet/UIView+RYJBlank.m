@@ -12,10 +12,10 @@
 
 @implementation UIView (RYJBlank)
 
+#pragma mark - SET & GET
 static char kBlankViewKey;
 - (void)setRyj_blankView:(RYJBlankView *)ryj_blankView {
     if (ryj_blankView != self.ryj_blankView) {
-        
         objc_setAssociatedObject(self, &kBlankViewKey, ryj_blankView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         
         for (UIView *view in self.subviews) {
@@ -33,16 +33,17 @@ static char kBlankViewKey;
 
 #pragma mark - Public Method
 - (void)ryj_showBlankView {
-    
-    [self.ryj_blankView.superview layoutSubviews];
-    
-    self.ryj_blankView.hidden = NO;
-    // 让 blankBGView 始终保持在最上层
-    [self bringSubviewToFront:self.ryj_blankView];
+    if (self.ryj_blankView) {
+        [self.ryj_blankView.superview layoutSubviews];
+        self.ryj_blankView.hidden = NO;
+        [self bringSubviewToFront:self.ryj_blankView];
+    }
 }
 
 - (void)ryj_hideBlankView {
-    self.ryj_blankView.hidden = YES;
+    if (self.ryj_blankView) {
+        self.ryj_blankView.hidden = YES;
+    }
 }
 
 @end

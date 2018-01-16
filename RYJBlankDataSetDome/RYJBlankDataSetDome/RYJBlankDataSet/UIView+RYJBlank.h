@@ -11,9 +11,12 @@
 
 @interface UIView (RYJBlank)
 
+/** 用来显示的空白页 */
 @property (nonatomic, strong) RYJBlankView *ryj_blankView;
 
+/** 手动显示 */
 - (void)ryj_showBlankView;
+/** 手动隐藏 */
 - (void)ryj_hideBlankView;
 
 @end
